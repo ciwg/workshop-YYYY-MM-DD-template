@@ -1,6 +1,16 @@
 class: center, middle
 
-# Welcome to Remark.js
+# Workshop Title
+
+**Subtitle: An Introduction to Remark.js**
+
+Author(s)
+
+*CSWG Workshop May 2025*
+
+Slides & materials can be found at:
+
+ciwg.github.io/workshop-template/slides/slides.html
 
 ---
 
