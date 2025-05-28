@@ -88,7 +88,7 @@ func wsHandler(hub *Hub, w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// buildSlides reads slides.md, extracts the title, parses slides.thtml template, and writes slides.html.
+// buildSlides reads slides.md, extracts the title, parses slides.thtml template, and writes index.html.
 func buildSlides() {
 	// Read slides.md file.
 	mdBytes, err := ioutil.ReadFile("slides.md")
@@ -145,16 +145,16 @@ func buildSlides() {
 		return
 	}
 
-	// Write the executed template to slides.html.
-	if err := ioutil.WriteFile("slides.html", buf.Bytes(), 0644); err != nil {
-		log.Printf("Error writing slides.html: %v", err)
+	// Write the executed template to index.html.
+	if err := ioutil.WriteFile("index.html", buf.Bytes(), 0644); err != nil {
+		log.Printf("Error writing index.html: %v", err)
 		return
 	}
 
-	log.Println("Rebuilt slides.html successfully.")
+	log.Println("Rebuilt index.html successfully.")
 }
 
-// watchSlides sets up a file watcher on slides.md. On modifications, it rebuilds slides.html
+// watchSlides sets up a file watcher on slides.md. On modifications, it rebuilds index.html
 // and notifies connected websocket clients to reload.
 func watchSlides(hub *Hub) {
 	watcher, err := fsnotify.NewWatcher()
@@ -201,7 +201,7 @@ var LISTEN_PORT = 8192
 var LISTEN_ADDR = fmt.Sprintf("localhost:%d", LISTEN_PORT)
 
 func main() {
-	// Initial build of slides.html.
+	// Initial build of index.html.
 	buildSlides()
 
 	// Set up the websocket Hub.
@@ -211,12 +211,12 @@ func main() {
 	// Start watching slides.md for changes.
 	go watchSlides(hub)
 
-	// Serve slides.html and static assets from the same directory.
+	// Serve index.html and static assets from the same directory.
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		// If the request is for the root, serve slides.html.
+		// If the request is for the root, serve index.html.
 		if r.URL.Path == "/" {
-			fmt.Println("Serving slides.html")
-			http.ServeFile(w, r, "slides.html")
+			fmt.Println("Serving index.html")
+			http.ServeFile(w, r, "index.html")
 			return
 		}
 		// Serve other files (e.g., images, CSS, JS) from the current directory.
@@ -229,7 +229,7 @@ func main() {
 		wsHandler(hub, w, r)
 	})
 
-	log.Printf("Serving slides.html and assets on %s\n", LISTEN_ADDR)
+	log.Printf("Serving index.html and assets on %s\n", LISTEN_ADDR)
 	if err := http.ListenAndServe(LISTEN_ADDR, nil); err != nil {
 		fmt.Printf("Error starting server -- run 'sudo netstat -tulpn | grep %d' to see conflicting processes\n", LISTEN_PORT)
 		log.Fatalf("Failed to start server: %v", err)
