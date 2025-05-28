@@ -19,7 +19,7 @@ import (
 /*
 How to use:
 - write your slides in remark.js-formatted markdown in a file called slides.md
-- put this file and slides.thtml in the same directory as your slides.md
+- put this file and load.thtml in the same directory as your slides.md
 - go mod init main  # if you haven't already -- can also pick a different module name
 - go run main.go
 	- this generates
@@ -88,7 +88,7 @@ func wsHandler(hub *Hub, w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// buildSlides reads slides.md, extracts the title, parses slides.thtml template, and writes index.html.
+// buildSlides reads slides.md, extracts the title, parses load.thtml template, and writes index.html.
 func buildSlides() {
 	// Read slides.md file.
 	mdBytes, err := ioutil.ReadFile("slides.md")
@@ -114,10 +114,10 @@ func buildSlides() {
 		title = "Slides"
 	}
 
-	// Read the slides template (slides.thtml)
-	tmplBytes, err := ioutil.ReadFile("slides.thtml")
+	// Read the slides template (load.thtml)
+	tmplBytes, err := ioutil.ReadFile("load.thtml")
 	if err != nil {
-		log.Printf("Error reading slides.thtml: %v", err)
+		log.Printf("Error reading load.thtml: %v", err)
 		return
 	}
 	tmplContent := string(tmplBytes)
