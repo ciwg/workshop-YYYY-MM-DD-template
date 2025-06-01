@@ -146,7 +146,7 @@ func buildSlides() {
 	}
 
 	// Write the executed template to index.html.
-	if err := ioutil.WriteFile("index.html", buf.Bytes(), 0644); err != nil {
+	if err := ioutil.WriteFile("../index.html", buf.Bytes(), 0644); err != nil {
 		log.Printf("Error writing index.html: %v", err)
 		return
 	}
@@ -215,8 +215,8 @@ func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		// If the request is for the root, serve index.html.
 		if r.URL.Path == "/" {
-			fmt.Println("Serving index.html")
-			http.ServeFile(w, r, "index.html")
+			fmt.Println("Serving ../index.html")
+			http.ServeFile(w, r, "../index.html")
 			return
 		}
 		// Serve other files (e.g., images, CSS, JS) from the current directory.
