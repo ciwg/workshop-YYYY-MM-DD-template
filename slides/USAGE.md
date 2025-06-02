@@ -10,14 +10,25 @@ automatically generated from `slides.md` by the `make` command.  Any
 edits you make to `index.html` will be lost the next time you run
 `make`.
 
-# Optional/later refactorings
+# Github Pages
 
 Configure the repo on github to turn on github pages for the `slides`
 folder (BTD: add/fix instructions for this).
 
-It may make more sense to have the slides.md in the root of the repo
-as the README.md instead of having a separate README.md; to do that
-we'd need to also move slides.thml, main.go, etc.
+# TODOs
+- [x] Setup example on GitHub Pages, add url in About section of the repo
+- [X] Rename `slides.html` to index.html, same for the index.thml file
+- [X] Move `index.html` and images/ to the root of the repo
+- [ ] Update `README.md` to be generic blueprint for workshops
+- [ ] Update name of repo to 'workshop-YYYY-MM-DD-workshop-template'
+- [ ] Use fetch(`slides/slides.md`) to load the slides
+- [ ] Automatically inject Github Pages url into `README.md`
+- [ ] Incorporate CSS from this workshop to formate tables, https://github.com/promisegrid/grid-poc/blob/main/x/wire/slides/slides.thtml
+
+
+
+
+
 
 
 
