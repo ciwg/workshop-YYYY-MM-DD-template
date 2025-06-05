@@ -19,6 +19,8 @@ folder (BTD: add/fix instructions for this).
 - [x] Setup example on GitHub Pages, add url in About section of the repo
 - [X] Rename `slides.html` to index.html, same for the index.thml file
 - [X] Move `index.html` and images/ to the root of the repo
+- [X] Move slides/\* to root of the repo
+- [ ] rename `slides.md` to `README.md`
 - [ ] Update `README.md` to be generic blueprint for workshops
 - [ ] Update name of repo to 'workshop-YYYY-MM-DD-workshop-template'
 - [ ] Use fetch(`slides/slides.md`) to load the slides

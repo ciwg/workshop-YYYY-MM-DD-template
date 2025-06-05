@@ -18,8 +18,8 @@ import (
 
 /*
 How to use:
-- write your slides in remark.js-formatted markdown in a file called slides.md
-- put this file and index.thtml in the same directory as your slides.md
+- write your slides in remark.js-formatted markdown in a file called README.md
+- put this file and index.thtml in the same directory as your README.md
 - go mod init main  # if you haven't already -- can also pick a different module name
 - go run main.go
 	- this generates
@@ -88,17 +88,17 @@ func wsHandler(hub *Hub, w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// buildSlides reads slides.md, extracts the title, parses index.thtml template, and writes index.html.
+// buildSlides reads README.md, extracts the title, parses index.thtml template, and writes index.html.
 func buildSlides() {
-	// Read slides.md file.
-	mdBytes, err := ioutil.ReadFile("slides.md")
+	// Read README.md file.
+	mdBytes, err := ioutil.ReadFile("README.md")
 	if err != nil {
-		log.Printf("Error reading slides.md: %v", err)
+		log.Printf("Error reading README.md: %v", err)
 		return
 	}
 	mdContent := string(mdBytes)
 
-	// Extract the title from slides.md.
+	// Extract the title from README.md.
 	// The title is assumed to be the content of the first line starting with "#"
 	scanner := bufio.NewScanner(strings.NewReader(mdContent))
 	var title string
@@ -154,7 +154,7 @@ func buildSlides() {
 	log.Println("Rebuilt index.html successfully.")
 }
 
-// watchSlides sets up a file watcher on slides.md. On modifications, it rebuilds index.html
+// watchSlides sets up a file watcher on README.md. On modifications, it rebuilds index.html
 // and notifies connected websocket clients to reload.
 func watchSlides(hub *Hub) {
 	watcher, err := fsnotify.NewWatcher()
@@ -178,8 +178,8 @@ func watchSlides(hub *Hub) {
 			if !ok {
 				return
 			}
-			// If slides.md was written to or renamed, schedule a rebuild.
-			if strings.HasSuffix(event.Name, "slides.md") &&
+			// If README.md was written to or renamed, schedule a rebuild.
+			if strings.HasSuffix(event.Name, "README.md") &&
 				(event.Op&fsnotify.Write == fsnotify.Write || event.Op&fsnotify.Create == fsnotify.Create || event.Op&fsnotify.Rename == fsnotify.Rename) {
 				// Debounce: wait briefly for successive events.
 				debounce = time.After(1000 * time.Millisecond)
@@ -208,7 +208,7 @@ func main() {
 	hub := newHub()
 	go hub.run()
 
-	// Start watching slides.md for changes.
+	// Start watching README.md for changes.
 	go watchSlides(hub)
 
 	// Serve index.html and static assets from the same directory.
