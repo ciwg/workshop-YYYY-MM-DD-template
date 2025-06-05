@@ -22,7 +22,7 @@ folder (BTD: add/fix instructions for this).
 - [X] Move slides/\* to root of the repo
 - [X] rename `slides.md` to `README.md`
 - [X] Update `README.md` to be generic blueprint for workshops
-- [ ] Update name of repo to 'workshop-YYYY-MM-DD-workshop-template'
+- [X] Update name of repo to 'workshop-YYYY-MM-DD-template'
 - [ ] Use fetch(`slides/slides.md`) to load the slides
 - [ ] Automatically inject Github Pages url into `README.md`
 - [ ] Incorporate CSS from this workshop to formate tables, https://github.com/promisegrid/grid-poc/blob/main/x/wire/slides/slides.thtml
