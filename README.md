@@ -13,7 +13,7 @@ Slides & materials can be found at:
 [http://ciwg.github.io/workshop-template/](http://ciwg.github.io/workshop-template/)
 
 See
-[http://ciwg.github.io/workshop-template/USAGE.md](http://ciwg.github.io/workshop-template/USAGE.md)
+[USAGE.md](https://github.com/ciwg/workshop-template/blob/main/USAGE.md)
 for instructions on how to use this template.
 
 ---
