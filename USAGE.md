@@ -23,9 +23,15 @@ folder (BTD: add/fix instructions for this).
 - [X] rename `slides.md` to `README.md`
 - [X] Update `README.md` to be generic blueprint for workshops
 - [X] Update name of repo to 'workshop-YYYY-MM-DD-template'
-- [ ] Use fetch(`slides/slides.md`) to load the slides
-- [ ] Automatically inject Github Pages url into `README.md`
+- [X] Use fetch(`slides/slides.md`) to load the slides
+    - [X] include the fetch code in index.thtml
+    - [X] remove the variable for the markdown from index.thtml
 - [ ] Incorporate CSS from this workshop to formate tables, https://github.com/promisegrid/grid-poc/blob/main/x/wire/slides/slides.thtml
+- [ ] implement markdown post-processing (Steve will likely need to do
+      this because he's picky and it needs to draw from the way he
+      does it in e.g. his Belgium talk
+      https://gitea.t7a.org/stevegt/talks-ghent-2019)
+    - [ ] this also lets us automatically inject Github Pages url into `README.md`
 
 
 

@@ -131,11 +131,11 @@ func buildSlides() {
 
 	// Prepare a template data struct.
 	data := struct {
-		Title  string
-		Slides string
+		Title string
+		// Slides string // XXX no longer used
 	}{
-		Title:  title,
-		Slides: mdContent,
+		Title: title,
+		// Slides: mdContent, // XXX no longer used
 	}
 
 	// Execute the template with the provided data.

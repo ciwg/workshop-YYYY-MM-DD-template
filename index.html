@@ -22,121 +22,7 @@
 </head>
 <body>
   
-  <textarea id="source">
-class: center, middle
-
-# Workshop Title
-
-**Subtitle: An Introduction to Remark.js**
-
-Author(s)
-
-*CSWG Workshop May 2025*
-
-Slides &amp; materials can be found at:
-
-[http://ciwg.github.io/workshop-YYYY-MM-DD-template/](http://ciwg.github.io/workshop-YYYY-MM-DD-template/)
-
-See
-[USAGE.md](https://github.com/ciwg/workshop-YYYY-MM-DD-template/blob/main/USAGE.md)
-for instructions on how to use this template.
-
----
-
-## Agenda
-
-1. Introduction to Remark.js
-2. Features and Benefits
-3. How to Create Slides
-4. Live Demo
-
----
-
-## Introduction to Remark.js
-
-- Markdown-driven slideshow tool
-- Runs directly in your browser
-- Highly customizable with CSS and JavaScript
-
----
-
-## Features and Benefits
-
-### Features:
-- Simple Markdown syntax
-- Supports speaker notes and incremental slides
-- Integrates LaTeX for math expressions
-
-### Benefits:
-- No additional software required
-- Lightweight and responsive
-- Open-source and free to use
-
----
-
-## How to Create Slides
-
-1. Write your slides in this Markdown file (e.g., `slides.md`).
-2. `go run main.go` to generate and host `slides.html`, or just run `make`
-   in the slides directory.
-
----
-
-## Live Demo
-
-&gt; &#34;The best way to learn is by doing!&#34;  
-&gt; Start creating your own presentation now.
-
----
-
-## Code Example
-
-```go
-package main
-
-import &#34;fmt&#34;
-
-// a long function that causes the code block to need a scrollbar
-// to demonstrate that code blocks can be scrolled
-func longFunction() {
-    // do nothing for several lines
-    fmt.Println(&#34;Hello, World!&#34;)
-    fmt.Println(&#34;Hello, World!&#34;)
-    fmt.Println(&#34;Hello, World!&#34;)
-    fmt.Println(&#34;Hello, World!&#34;)
-    fmt.Println(&#34;Hello, World!&#34;)
-    fmt.Println(&#34;Hello, World!&#34;)
-    fmt.Println(&#34;Hello, World!&#34;)
-    fmt.Println(&#34;Hello, World!&#34;)
-    fmt.Println(&#34;Hello, World!&#34;)
-    fmt.Println(&#34;Hello, World!&#34;)
-    fmt.Println(&#34;Hello, World!&#34;)
-    fmt.Println(&#34;Hello, World!&#34;)
-}
-
-func main() {
-    fmt.Println(&#34;Hello, World!&#34;)
-}
-```
-
----
-
-## Image Example
-
-Locally hosted image, scaled to 40% of the slide width:
-
-![:img Local Image, 40%](images/logo.svg)
-
-Remotely hosted image:
-![Remark.js Logo](https://raw.githubusercontent.com/remarkjs/remark/1f338e72/logo.svg?sanitize=true)
-
----
-
-class: center, middle
-
-# Thank You!
-
-
+  <textarea id="source" style="display:none;">
   </textarea>
 
   
@@ -147,13 +33,20 @@ class: center, middle
       altText + '" src="' + url + '" style="width: ' + width + '" />';
     };
     
-    var slideshow = remark.create({
-      ratio: '16:9',
-      navigation: {
-        scroll: true,   
-        touch: true     
-      }
-    });
+    var opts = {
+          ratio: '16:9',
+          navigation: {
+            scroll: true,   
+            touch: true     
+          }
+      };
+    
+    fetch("README.md")
+      .then(response => response.text())
+      .then(text => {
+        document.getElementById('source').textContent = text;
+        remark.create(opts);
+      });
   </script>
   <script>
     

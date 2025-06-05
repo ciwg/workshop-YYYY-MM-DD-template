@@ -22,8 +22,7 @@
 </head>
 <body>
   <!-- The slides content passed from the Go backend -->
-  <textarea id="source">
-{{ .Slides }}
+  <textarea id="source" style="display:none;">
   </textarea>
 
   <!-- Load remark.js from CDN -->
@@ -33,14 +32,21 @@
     remark.macros.img = function (altText, width) { var url = this; return '<img alt="' +
       altText + '" src="' + url + '" style="width: ' + width + '" />';
     };
-    // Create a new slideshow using remark.js
-    var slideshow = remark.create({
-      ratio: '16:9',
-      navigation: {
-        scroll: true,   // Enables scroll navigation
-        touch: true     // Enables touch navigation
-      }
-    });
+    // configure remark.create() options
+    var opts = {
+          ratio: '16:9',
+          navigation: {
+            scroll: true,   // Enables scroll navigation
+            touch: true     // Enables touch navigation
+          }
+      };
+    // dynamically fetch the markdown content from README.md
+    fetch("README.md")
+      .then(response => response.text())
+      .then(text => {
+        document.getElementById('source').textContent = text;
+        remark.create(opts);
+      });
   </script>
   <script>
     // Establish a websocket connection to receive reload notifications.
