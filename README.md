@@ -16,41 +16,60 @@ For additional materials visit the repo on [Github](https://github.com/ciwg/work
 
 ## Agenda
 
-1. Features
-2. Quick Start
-3. How it works
+1. Introduction
+2. How it works
+3. Quick Start
 4. Setting up Github Pages
 5. Code Example
 6. Table Example
 
-
 ---
 
-## Introduction to Remark.js
+## Introduction
 
-- Markdown-driven slideshow tool
-- Runs directly in your browser
+This template uses [remark](https://remarkjs.com/#1) and Go to build and serve slide presentation. Slides are written in Markdown using a couple 'formatting rules' and compiled with Go into a static HTML file.
+
+--
+
+### Remark.js:
+- Use `---` to separate slides, `--` to increment a slide
 - Highly customizable with CSS and JavaScript
+- Supports speaker notes (append '#p1' to the url)
+- Configurations (e.g. scroll navigation) can be enabled or disabled
+
+Visit the [wiki](https://github.com/gnab/remark/wiki/Markdown) to understand more built-in formating options.
+--
+
+### Go code:
+The Go code in this repo extends the basic functionality of Remark.js by automating the slide building process, incorporating a template file, and enabling live-reloading during presentating & development.
+
+???
+This is a speaker note. View speaker mode by appending #p1 to your presentation url, ex: http://localhost:8192/#p1
 
 ---
 
-## Features and Benefits
+## How it works
 
-### Features:
-- Simple Markdown syntax
-- Supports speaker notes and incremental slides
-- Integrates LaTeX for math expressions
+**Remark.js** is a Javascript script to parse a Markdown file into a slideshow that runs in your web browser.    
 
-### Benefits:
-- No additional software required
-- Lightweight and responsive
-- Open-source and free to use
+**The Go code** takes content from `README.md` and the template file `index.html` to build `index.html`. It starts a local server so you can view your slides live at `localhost:8192` and refreshes it when you make changes. 
+
+--
+
+**NOTE:** Sometimes the browser caches too aggressively & changes aren't displayed. Use **`Ctrl+Shift+R`** (or `Cmd+Shift+R` on Mac) to complete a 'hard refresh' of your browser tab.  
+
+--
+## Prerequisites
+1. A modern web browser
+2. A Text editor
+3. Go 1.8 or newer (Install instructions: https://go.dev/doc/install)
+4. Internet connection to load RemarkJS script
 
 ---
 
 ## Quick Start
 
-**Copy the template**
+**Copy this template**
 1. Visit the [workshop template](https://github.com/ciwg/workshop-YYYY-MM-DD-template/), and click "Use this template".  
 ![:img Template Button, 30%](https://docs.github.com/assets/cb-76823/mw-1440/images/help/repository/use-this-template-button.webp)
 
