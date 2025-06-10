@@ -178,8 +178,19 @@ func watchSlides(hub *Hub) {
 			if !ok {
 				return
 			}
-			// If README.md was written to or renamed, schedule a rebuild.
-			if strings.HasSuffix(event.Name, "README.md") &&
+			// If README.md or index.thtml was written to or renamed, schedule a rebuild.
+			rebuild := false
+			lookfor := []string{
+				"README.md",
+				"index.thtml",
+			}
+			for _, file := range lookfor {
+				if strings.HasSuffix(event.Name, file) {
+					rebuild = true
+					break
+				}
+			}
+			if rebuild &&
 				(event.Op&fsnotify.Write == fsnotify.Write || event.Op&fsnotify.Create == fsnotify.Create || event.Op&fsnotify.Rename == fsnotify.Rename) {
 				// Debounce: wait briefly for successive events.
 				debounce = time.After(1000 * time.Millisecond)
