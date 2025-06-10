@@ -26,7 +26,8 @@ folder (BTD: add/fix instructions for this).
 - [X] Use fetch(`slides/slides.md`) to load the slides
     - [X] include the fetch code in index.thtml
     - [X] remove the variable for the markdown from index.thtml
-- [ ] Incorporate CSS from this workshop to formate tables, https://github.com/promisegrid/grid-poc/blob/main/x/wire/slides/slides.thtml
+- [X] Incorporate CSS from this workshop to formate tables, https://github.com/promisegrid/grid-poc/blob/main/x/wire/slides/slides.thtml
+    - [X] add example table to `README.md`
 - [ ] implement markdown post-processing (Steve will likely need to do
       this because he's picky and it needs to draw from the way he
       does it in e.g. his Belgium talk

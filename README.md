@@ -2,28 +2,27 @@ class: center, middle
 
 # Workshop Title
 
-**Subtitle: An Introduction to Remark.js**
+**Subtitle: A slide deck template powered by Remark.js and Go**
 
-Author(s)
+Author: Your Name
 
-*CSWG Workshop May 2025*
-
-Slides & materials can be found at:
+*CSWG Workshop June 10 2025*
 
 [http://ciwg.github.io/workshop-YYYY-MM-DD-template/](http://ciwg.github.io/workshop-YYYY-MM-DD-template/)
 
-See
-[USAGE.md](https://github.com/ciwg/workshop-YYYY-MM-DD-template/blob/main/USAGE.md)
-for instructions on how to use this template.
+For additional materials visit the repo on [Github](https://github.com/ciwg/workshop-YYYY-MM-DD-template/)
 
 ---
 
 ## Agenda
 
-1. Introduction to Remark.js
-2. Features and Benefits
-3. How to Create Slides
-4. Live Demo
+1. Features
+2. Quick Start
+3. How it works
+4. Setting up Github Pages
+5. Code Example
+6. Table Example
+
 
 ---
 
@@ -49,18 +48,36 @@ for instructions on how to use this template.
 
 ---
 
-## How to Create Slides
+## Quick Start
 
-1. Write your slides in this Markdown file (e.g., `slides.md`).
-2. `go run main.go` to generate and host `slides.html`, or just run `make`
-   in the slides directory.
+**Copy the template**
+1. Visit the [workshop template](https://github.com/ciwg/workshop-YYYY-MM-DD-template/), and click "Use this template".  
+![:img Template Button, 30%](https://docs.github.com/assets/cb-76823/mw-1440/images/help/repository/use-this-template-button.webp)
+
+- Make sure **Owner** is set to "ciwg" (Community Systems Working Group). 
+    - This creates the repo under our organization and you retain access to 'Github Pages' Settings later.
+        - Alternatively, you can create repo under your account, then create a fork under the ciwg organization.
+        - *Avoid transfering ownership to CSWG, as this will require admin rights to activate Pages.*
+- Name your repository following **'workshop-YYYY-MM-DD-workshop-name'** format.
+
+**Modify the content**
+1. Clone the repo to your local machine.
+3. Edit `README.md` to create the content of your workshop.
+4. In your terminal, `go run main.go` (or just `make`) to generate and host `index.html`
+5. Open your browser and navigate to http://localhost:8192 to view your slides.
 
 ---
 
-## Live Demo
+## Github Pages
 
-> "The best way to learn is by doing!"  
-> Start creating your own presentation now.
+1. Push to GitHub
+2. Go to Settings > Pages
+3. Select source: main branch, / (root)
+4. Your slides will be live at:
+'https://ciwg.github.io/your-workshop-name/'
+5. Update the URL on the cover page as needed.
+
+Optional: Click the Settings ⚙️ in the About section of the repo. Check ✅ 'Use your GitHub Pages website'
 
 ---
 
@@ -102,8 +119,19 @@ Locally hosted image, scaled to 40% of the slide width:
 
 ![:img Local Image, 40%](images/logo.svg)
 
-Remotely hosted image:
-![Remark.js Logo](https://raw.githubusercontent.com/remarkjs/remark/1f338e72/logo.svg?sanitize=true)
+---
+
+## Table Example
+
+Insert a table to display data:
+
+| Feature       | Description                          |
+|---------------|--------------------------------------|
+| Markdown      | Simple syntax for writing slides     |
+| LaTeX         | Support for mathematical expressions |
+| Customization | CSS and JavaScript for styling      |
+
+You can modify how the table is displayed by editing the CSS in the template file.
 
 ---
 
