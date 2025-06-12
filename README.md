@@ -34,7 +34,7 @@ This template uses [remark](https://remarkjs.com/#1) and Go to build and serve s
 ### Remark.js:
 - Use `---` to separate slides, `--` to increment a slide
 - Highly customizable with CSS and JavaScript
-- Supports speaker notes (append '#p1' to the url)
+- Supports speaker notes (press "P" to toggle in/out)
 - Configurations (e.g. scroll navigation) can be enabled or disabled
 
 Visit the [wiki](https://github.com/gnab/remark/wiki/Markdown) to understand more built-in formating options.
@@ -44,21 +44,17 @@ Visit the [wiki](https://github.com/gnab/remark/wiki/Markdown) to understand mor
 The Go code in this repo extends the basic functionality of Remark.js by automating the slide building process, incorporating a template file, and enabling live-reloading during presentating & development.
 
 ???
-This is a speaker note. View speaker mode by appending #p1 to your presentation url, ex: http://localhost:8192/#p1
+This is a speaker note. View speaker mode using "P" hotkey or insert #p to the url, for example: http://localhost:8192/#p5
 
 ---
 
 ## How it works
 
-**Remark.js** is a Javascript script to parse a Markdown file into a slideshow that runs in your web browser.    
+.center[![:img How it works, 100%](images/How-it-works.svg)]
 
-**The Go code** takes content from `README.md` and the template file `index.html` to build `index.html`. It starts a local server so you can view your slides live at `localhost:8192` and refreshes it when you make changes. 
+**NOTE:** Sometimes the browser caches too aggressively & recent changes won't displayed. Use **`Ctrl+Shift+R`** (or `Cmd+Shift+R` on Mac) to complete a 'hard refresh' of your browser tab.  
 
---
-
-**NOTE:** Sometimes the browser caches too aggressively & changes aren't displayed. Use **`Ctrl+Shift+R`** (or `Cmd+Shift+R` on Mac) to complete a 'hard refresh' of your browser tab.  
-
---
+---
 ## Prerequisites
 1. A modern web browser
 2. A Text editor
@@ -132,14 +128,6 @@ func main() {
 
 ---
 
-## Image Example
-
-Locally hosted image, scaled to 40% of the slide width:
-
-![:img Local Image, 40%](images/logo.svg)
-
----
-
 ## Table Example
 
 Insert a table to display data:
@@ -150,7 +138,7 @@ Insert a table to display data:
 | LaTeX         | Support for mathematical expressions |
 | Customization | CSS and JavaScript for styling      |
 
-You can modify how the table is displayed by editing the CSS in the template file.
+You can modify table formatting by editing the CSS in the template file.
 
 ---
 
