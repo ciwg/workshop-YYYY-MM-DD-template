@@ -28,6 +28,14 @@ folder (BTD: add/fix instructions for this).
     - [X] remove the variable for the markdown from index.thtml
 - [X] Incorporate CSS from this workshop to formate tables, https://github.com/promisegrid/grid-poc/blob/main/x/wire/slides/slides.thtml
     - [X] add example table to `README.md`
+- [ ] Workshop feedback
+    - [ ] Speaker mode can be accessed by pressing "P"
+    - [ ] Adding footnote CSS
+    - [ ] Consider fronts that may align with the expected visual idenity of CSWG
+    - [ ] Replace remark image (remark.js.org is not related to remarkjs.com)
+    - [ ] Add a slide on CSS styling?
+    - [ ] Investigate .thtml file, why do some parts of the styling not change? Possibly overridden by the CSS file above.
+    - [ ] Styling the code blocks, preferably black background
 - [ ] implement markdown post-processing (Steve will likely need to do
       this because he's picky and it needs to draw from the way he
       does it in e.g. his Belgium talk
