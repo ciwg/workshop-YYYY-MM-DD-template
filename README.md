@@ -18,7 +18,7 @@ For additional materials visit the repo on [Github](https://github.com/ciwg/work
 
 1. Quick Start
 2. Setting up Github Pages
-2. Workshop Template Details
+2. Introduction
 3. How it Works
 5. Code Example
 6. Table Example
@@ -54,7 +54,7 @@ Optional: Click the Settings ⚙️ in the About section of the repo. Check ✅ 
 
 ---
 
-## Workshop Template Details
+## Introduction
 
 This template uses [remark](https://remarkjs.com/#1) and Go to build and serve slide presentation. Slides are written in Markdown using a couple 'formatting rules' and compiled with Go into a static HTML file.
 
