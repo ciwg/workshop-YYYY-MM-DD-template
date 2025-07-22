@@ -1,6 +1,6 @@
 # Usage
 
-1. Fork this repository
+1. Create a repository from this template -- see README.md
 2. Edit the `README.md` file to describe your workshop
 3. Edit slides/slides.md to create your slides
 4. Run `make` in the slides directory to generate and host the slides
